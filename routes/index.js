@@ -1,16 +1,12 @@
-// Require express router
+//imports the router
 const router = require('express').Router();
-
-// Import all of the API routes 
+//imports the api routes
 const apiRoutes = require('./api');
-
-// add prefix of `/api` to all of the api routes
+//sets the api routes for use
 router.use('/api', apiRoutes);
-
-// 404 Status error message
+//ensures that if you enter an undefined route, you receive an error saying wrong route
 router.use((req, res) => {
-    res.status(404).send('<h1>404 Error....</h1>');
-  });
-
-// Module exports router
+    return res.send('Wrong Route');
+});
+//exports the router
 module.exports = router;

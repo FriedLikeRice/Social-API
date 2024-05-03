@@ -1,15 +1,14 @@
-// Set requirements (Express Router)
+//sets up an express router
 const router = require('express').Router();
+//imports thoughtRoutes
+const thoughtRoutes = require('./thoughtRoutes');
+//imports user routes
+const userRoutes = require('./userRoutes');
 
-// Set routes (user and thought routes)
-const usersRoutes = require('./user-routes');
-const thoughtsRoutes = require('./thought-routes');
+//sets up thought route information
+router.use('/thoughts', thoughtRoutes);
+//sets up user route information
+router.use('/users', userRoutes);
 
-// Add `/users` to created routes 
-router.use('/users', usersRoutes);
-
-// Add `/thoughts` to created routes 
-router.use('/thoughts', thoughtsRoutes);
-
-// Export Module Router
+//exports the router for use
 module.exports = router;
